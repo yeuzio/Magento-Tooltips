@@ -25,20 +25,23 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <!--
+                        
                         <csv translate="label comment">
-                            <frontend_type>image</frontend_type>
+                            <frontend_type>file</frontend_type>
+                            <!--
                             <backend_model>responsivemodelbackend/HandlePhoto</backend_model>
-                            <upload_dir config="system/filesystem/media" scope_info="1">catalog/product/placeholder</upload_dir>
-                            <base_url type="media" scope_info="1">catalog/product/placeholder</base_url>                            
-                            <label>Background Image</label>
+                            -->
+                            <backend_model>adminhtml/system_config_backend_file</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">qshops/tooltip</upload_dir>
+                            <base_url type="media" scope_info="1">qshops/tooltip</base_url>
+                            <label>CSV File</label>
                             <sort_order>6</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>Upload a Background Image</comment>
+                            <comment>CSV File containing tooltip data</comment>
                         </csv>
-                        -->
+                        
                         <enabled translate="label comment">
                             <label>Enable Tooltips?</label>
                             <frontend_type>select</frontend_type>

@@ -9,23 +9,14 @@ class Qshops_Tooltip_Model_Observer
             return;
         }
         
-        //debug($observer->getEvent()->getBlock()->getNameInLayout());
-        /*
-        if ('description' == $observer->getEvent()->getBlock()->getNameInLayout()) {
-            $transport = $observer->getEvent()->getTransport();
-            debug($transport);
-        }
-        */
         if ('description' == $observer->getEvent()->getBlock()->getNameInLayout()) {
  
-            if (!Mage::getStoreConfig('advanced/modules_disable_output/'.self::MODULE_NAME)) {
+            if (!Mage::getStoreConfig('advanced/modules_disable_output/'.self::MODULE_NAME) && Mage::getStoreConfig('tooltip/general/enabled')) {
  
                 $transport = $observer->getEvent()->getTransport();
-                debug($transport);
                 
                 $block = new Qshops_Tooltip_Block_AddTooltip();
-                $block->setPassingTransport($transport['html']);
-                $block->toHtml();
+                $transport['html'] = $block->setPassingTransport($transport['html']);
             }
         }
  
