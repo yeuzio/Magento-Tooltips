@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Qshops_Tooltip>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Qshops_Tooltip>
+    </modules>
+</config>
