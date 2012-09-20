@@ -15,7 +15,8 @@ class Qshops_Tooltip_Block_AddTooltip extends Mage_Core_Block_Text
                 $row++;
                 
                 $needle = $data[0];
-                $replace ='<a class="qshops-tooltip" href="javascript:void()">'.$needle.'<span>'.utf8_encode($data[1]).'</span></a>';
+                $data[1] = iconv(mb_detect_encoding($data[1], mb_detect_order(), true), "UTF-8", $data[1]);
+                $replace ='<a class="qshops-tooltip" href="javascript:void()">'.$needle.'<span>'.$data[1].'</span></a>';
 
                 $transport = str_replace($needle, $replace, $transport);
 
