@@ -7,38 +7,53 @@ class Qshops_Tooltip_Block_AddTooltip extends Mage_Core_Block_Text
     public function setPassingTransport($transport)
     {
         $csv = Mage::getStoreConfig('tooltip/general/csv');
-        debug(gettype($csv));
-        //$csv = str_replace('/', '\\', $csv);
-        debug($csv);
-        $url = Mage::getBaseDir('media').DS.'qshops'.DS.'tootip'.DS.$csv;
-        debug($url);
-        debug(file_exists($url));
+
+        $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'qshops/tooltip/'.$csv;
+
         if (($handle = @fopen("$url", "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {     
                 $row++;
-
-                $data[0] = str_replace("ö", "&ouml;", $data[0]);
-                $data[0] = str_replace("Ö", "&Ouml;", $data[0]);
-                $data[0] = str_replace("ä", "&auml;", $data[0]);
-                $data[0] = str_replace("Ä", "&Auml;", $data[0]);
-                $data[0] = str_replace("ü", "&uuml;", $data[0]);
-                $data[0] = str_replace("Ü", "&Uuml;", $data[0]);
-                $data[0] = str_replace("ß", "&szlig;", $data[0]);
-                $data[0] = str_replace("€", "&euro;", $data[0]);
-                $data[0] = str_replace("<", "&lt;", $data[0]);
-                $data[0] = str_replace(">", "&gt;", $data[0]);
-                $data[0] = str_replace("©", "&copy;", $data[0]);
-
+                
                 $needle = $data[0];
-                $replace ='<a style="color: red;" class="tooltip" href="javascript:void()">'.$needle.'<span>'.$data[1].'</span></a>';
+                $replace ='<a class="qshops-tooltip" href="javascript:void()">'.$needle.'<span>'.utf8_encode($data[1]).'</span></a>';
 
                 $transport = str_replace($needle, $replace, $transport);
 
             }
             fclose($handle);
         }
-        
-        return $transport;
+        $css = '
+            <style>
+                /* Tooltip */
+
+                .qshops-tooltip {
+                    position:relative;
+                    z-index:24; 
+                        border-bottom: 2px dotted #555;
+                }
+
+                .qshops-tooltip:hover{ z-index:25; }
+
+                .qshops-tooltip span{ display: none }
+
+                .qshops-tooltip:hover span {
+                    display:block;
+                    position:absolute;
+                    bottom:2em; left:2em; width:15em;
+                    border:1px solid #000;
+                        border-radius: 5px;
+                        box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+                    background-color: #000; 
+                    background-color: rgba(0,0,0,0.8); 
+                        color:#fff;
+                        font-weight: normal;
+                        text-align: left;
+                        padding: 5px;
+                }
+                
+            </style>
+        ';
+        return $transport.$css;
     }
 }
 ?>
