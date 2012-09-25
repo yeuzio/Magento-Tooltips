@@ -7,6 +7,24 @@ class Qshops_Tooltip_Block_AddTooltip extends Mage_Core_Block_Text
     public function setPassingTransport($transport)
     {
         $csv = Mage::getStoreConfig('tooltip/general/csv');
+        
+        $color_underline = Mage::getStoreConfig('tooltip/colors/underline');
+        
+        if(!$color_underline) {
+            $color_underline = '#555';
+        }
+        
+        $color_bg = Mage::getStoreConfig('tooltip/colors/bg');
+        
+        if(!$color_bg) {
+            $color_bg = 'rgba(0,0,0,0.8)';
+        }
+        
+        $color_text = Mage::getStoreConfig('tooltip/colors/text');
+        
+        if(!$color_text) {
+            $color_text = '#fff';
+        }
 
         $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'qshops/tooltip/'.$csv;
 
@@ -30,7 +48,7 @@ class Qshops_Tooltip_Block_AddTooltip extends Mage_Core_Block_Text
                     .qshops-tooltip {
                         position:relative;
                         z-index:24; 
-                            border-bottom: 2px dotted #555;
+                            border-bottom: 2px dotted '.$color_underline.';
                     }
 
                     .qshops-tooltip:hover{ z-index:25; }
@@ -42,14 +60,13 @@ class Qshops_Tooltip_Block_AddTooltip extends Mage_Core_Block_Text
                         position:absolute;
                         bottom:2em; left:2em; width:15em;
                         border:1px solid #000;
-                            border-radius: 5px;
-                            box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
-                        background-color: #000; 
-                        background-color: rgba(0,0,0,0.8); 
-                            color:#fff;
-                            font-weight: normal;
-                            text-align: left;
-                            padding: 5px;
+                        border-radius: 5px;
+                        box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+                        background-color: '.$color_bg.'; 
+                        color:'.$color_text.';
+                        font-weight: normal;
+                        text-align: left;
+                        padding: 5px;
                     }
 
                 </style>

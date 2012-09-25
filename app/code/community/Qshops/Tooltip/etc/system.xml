@@ -25,12 +25,8 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        
                         <csv translate="label comment">
                             <frontend_type>file</frontend_type>
-                            <!--
-                            <backend_model>responsivemodelbackend/HandlePhoto</backend_model>
-                            -->
                             <backend_model>adminhtml/system_config_backend_file</backend_model>
                             <upload_dir config="system/filesystem/media" scope_info="1">qshops/tooltip</upload_dir>
                             <base_url type="media" scope_info="1">qshops/tooltip</base_url>
@@ -54,6 +50,43 @@
                         </enabled>
                     </fields>
                 </general>
+                <colors translate="label">
+                    <label>Colors</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <underline translate="label comment">
+                            <label>Underline Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Underline Color in Hex or RGBa e.g. "#F9F9F9", "rgba(250,250,250,0.5)"</comment>
+                        </underline>
+                        <bg translate="label comment">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Background Color in Hex or RGBa e.g. "#F9F9F9", "rgba(250,250,250,0.5)"</comment>
+                        </bg>
+                        <text translate="label comment">
+                            <label>Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Text Color in Hex or RGBa e.g. "#F9F9F9", "rgba(250,250,250,0.5)"</comment>
+                        </text>
+                    </fields>
+                </colors>
             </groups>
         </tooltip>
     </sections>
