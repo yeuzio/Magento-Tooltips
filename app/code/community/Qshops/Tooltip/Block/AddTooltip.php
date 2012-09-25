@@ -25,6 +25,18 @@ class Qshops_Tooltip_Block_AddTooltip extends Mage_Core_Block_Text
         if(!$color_text) {
             $color_text = '#fff';
         }
+        
+        $color_border = Mage::getStoreConfig('tooltip/colors/border');
+        
+        if(!$color_border) {
+            $color_border = '#000';
+        }
+        
+        $color_shadow = Mage::getStoreConfig('tooltip/colors/shadow');
+        
+        if(!$color_shadow) {
+            $color_shadow = 'rgba(0,0,0,0.5)';
+        }
 
         $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'qshops/tooltip/'.$csv;
 
@@ -59,9 +71,9 @@ class Qshops_Tooltip_Block_AddTooltip extends Mage_Core_Block_Text
                         display:block;
                         position:absolute;
                         bottom:2em; left:2em; width:15em;
-                        border:1px solid #000;
+                        border:1px solid '.$color_border.';
                         border-radius: 5px;
-                        box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+                        box-shadow: 4px 4px 4px '.$color_shadow.';
                         background-color: '.$color_bg.'; 
                         color:'.$color_text.';
                         font-weight: normal;

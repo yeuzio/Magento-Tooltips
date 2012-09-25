@@ -57,6 +57,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
+                    <comment>Colors in CSS Values like Hex, RGBa, HSLa e.g. "#F9F9F9", "rgba(250,250,250,0.5)"</comment>
                     <fields>
                         <underline translate="label comment">
                             <label>Underline Color</label>
@@ -65,7 +66,6 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>Underline Color in Hex or RGBa e.g. "#F9F9F9", "rgba(250,250,250,0.5)"</comment>
                         </underline>
                         <bg translate="label comment">
                             <label>Background Color</label>
@@ -74,7 +74,6 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>Background Color in Hex or RGBa e.g. "#F9F9F9", "rgba(250,250,250,0.5)"</comment>
                         </bg>
                         <text translate="label comment">
                             <label>Text Color</label>
@@ -83,8 +82,23 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>Text Color in Hex or RGBa e.g. "#F9F9F9", "rgba(250,250,250,0.5)"</comment>
                         </text>
+                        <border translate="label comment">
+                            <label>Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </border>
+                        <shadow translate="label comment">
+                            <label>Shadow Color</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shadow>
                     </fields>
                 </colors>
             </groups>
